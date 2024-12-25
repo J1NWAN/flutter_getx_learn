@@ -1,16 +1,12 @@
-# flutter_getx_learn
+# GetX를 사용한 예제 프로젝트
 
-A new Flutter project.
+## 프로젝트 목표
 
-## Getting Started
+GetX를 사용하여 예제 프로젝트를 만들고 화면 이동 및 데이터 전달 방법을 익힌다.
+예제에 대한 정보나 아이디어는 GetX 공식 문서를 참고한다.(https://github.com/jonataslaw/getx/blob/master/README.ko-kr.md)
 
-This project is a starting point for a Flutter application.
+## 프로젝트 구성
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. GetX를 사용한 카운터 앱
+    - 버튼을 눌렀을 때 누른 횟수만큼 단순히 숫자가 증가하는 앱
+    - Controller 클래스를 활용하여 다른 화면으로 이동할 때 데이터를 전달한다.
