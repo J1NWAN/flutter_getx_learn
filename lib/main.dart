@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_learn/getx_route/screen/sample2_screen.dart';
 import 'package:flutter_getx_learn/main_screen.dart';
 import 'package:get/get.dart';
 
@@ -28,5 +29,9 @@ void main() {
         foregroundColor: Colors.white,
       ),
     ),
+    // 라우트 관리 예제용
+    getPages: [
+      GetPage(name: '/sample2', page: () => const Sample2Screen()),
+    ],
   ));
 }
