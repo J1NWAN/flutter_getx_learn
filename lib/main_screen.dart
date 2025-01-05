@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_learn/getx_counter/screen/getx_counter_screen.dart';
+import 'package:flutter_getx_learn/getx_community/screen/getx_community_main.screen.dart';
 import 'package:flutter_getx_learn/getx_route/screen/getx_route_screen.dart';
 import 'package:flutter_getx_learn/getx_theme_change/screen/getx_theme_change_screen.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ class MainScreen extends StatelessWidget {
             buildListTile('GetX 카운터 앱', 'GetX를 사용한 카운터 앱', const GetxCounterScreen()),
             buildListTile('GetX 라우트 관리 예제', 'GetX를 사용한 라우트 관리 예제', const GetxRouteScreen()),
             buildListTile('GetX 테마 변경 예제', 'GetX를 사용한 테마 변경 예제', const GetxThemeChangeScreen()),
+            buildListTile('GetX 활용 예제1(커뮤니티)', 'GetX를 사용한 커뮤니티 예제', GetxCommunityMainScreen()),
           ],
         ),
       ),
