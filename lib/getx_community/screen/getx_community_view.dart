@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_learn/getx_community/screen/getx_community_write.screen.dart';
 import 'package:get/get.dart';
 
 import '../controller/getx_community_controller.dart';
@@ -14,6 +15,12 @@ class GetxCommunityViewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('게시글 상세'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () => Get.to(() => GetxCommunityWriteScreen(index: index)),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

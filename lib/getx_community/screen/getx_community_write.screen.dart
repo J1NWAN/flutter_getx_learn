@@ -1,20 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_learn/getx_community/controller/getx_community_controller.dart';
+import 'package:flutter_getx_learn/getx_community/screen/getx_community_view.dart';
 import 'package:get/get.dart';
 
 class GetxCommunityWriteScreen extends StatelessWidget {
-  GetxCommunityWriteScreen({super.key});
+  GetxCommunityWriteScreen({super.key, this.index});
 
-  final GetxCommunityController controller = Get.put(GetxCommunityController());
+  final int? index;
+  final GetxCommunityController controller = Get.find();
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    if (index != null) {
+      final post = controller.posts[index!];
+      titleController.text = post.title;
+      contentController.text = post.content;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('글쓰기'),
+        title: Text(index != null ? '수정' : '글쓰기'),
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -27,14 +35,16 @@ class GetxCommunityWriteScreen extends StatelessWidget {
             ),
             onPressed: () {
               if (titleController.text.isNotEmpty && contentController.text.isNotEmpty) {
-                controller.addPost(titleController.text, contentController.text);
+                if (index != null) {
+                  controller.updatePost(index!, titleController.text, contentController.text);
+                  Get.to(() => GetxCommunityViewScreen(index: index!));
+                } else {
+                  controller.addPost(titleController.text, contentController.text);
+                  Get.back();
+                }
               } else {
                 Get.snackbar('오류', '제목과 내용을 모두 입력해주세요.');
               }
-
-              titleController.clear();
-              contentController.clear();
-              Get.back();
             },
             child: const Text('저장'),
           )

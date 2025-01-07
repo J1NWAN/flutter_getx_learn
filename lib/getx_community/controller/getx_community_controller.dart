@@ -19,6 +19,16 @@ class GetxCommunityController extends GetxController {
   void updateReadCount(int index) {
     posts[index].readCount.value++;
   }
+
+  void updatePost(int index, String title, String content) {
+    final currentPost = posts[index];
+    posts[index] = Post(
+      title: title,
+      content: content,
+      createdAt: currentPost.createdAt,
+      readCount: currentPost.readCount,
+    );
+  }
 }
 
 class Post {
