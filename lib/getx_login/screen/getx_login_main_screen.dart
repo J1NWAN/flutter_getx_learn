@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_getx_learn/getx_login/controller/getx_login_controller.dart';
 import 'package:flutter_getx_learn/getx_login/screen/getx_login_recovery.dart';
 import 'package:flutter_getx_learn/getx_login/screen/getx_login_signup.screen.dart';
@@ -11,7 +10,7 @@ class LoginMainScreen extends StatelessWidget {
 
   final TextEditingController idController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final LoginController controller = Get.put(LoginController());
+  final GetXLoginController controller = Get.put(GetXLoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,40 +18,29 @@ class LoginMainScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 250),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
             children: [
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  controller: idController,
-                  decoration: const InputDecoration(
-                    hintText: 'ID',
-                  ),
+              const SizedBox(height: 150),
+              TextField(
+                controller: idController,
+                decoration: const InputDecoration(
+                  hintText: 'ID',
+                  border: OutlineInputBorder(),
                 ),
               ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                  ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  hintText: 'Password',
+                  border: OutlineInputBorder(),
                 ),
+                obscureText: true,
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Column(
-            children: [
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -64,7 +52,7 @@ class LoginMainScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(() => const GetxLoginRecoveryScreen());
+                      Get.to(() => GetxLoginRecoveryScreen());
                     },
                     child: const Text('비밀번호 찾기'),
                   ),
@@ -75,7 +63,7 @@ class LoginMainScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  minimumSize: const Size(300, 50),
+                  minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {
                   if (idController.text.isEmpty || passwordController.text.isEmpty) {
@@ -90,8 +78,8 @@ class LoginMainScreen extends StatelessWidget {
                 child: const Text('로그인'),
               ),
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
