@@ -5,8 +5,8 @@ import 'package:flutter_getx_learn/getx_login/screen/getx_login_signup.screen.da
 import 'package:flutter_getx_learn/getx_login/screen/getx_login_success.screen.dart';
 import 'package:get/get.dart';
 
-class LoginMainScreen extends StatelessWidget {
-  LoginMainScreen({super.key});
+class GetxLoginMainScreen extends StatelessWidget {
+  GetxLoginMainScreen({super.key});
 
   final TextEditingController idController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
